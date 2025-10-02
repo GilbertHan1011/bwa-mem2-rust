@@ -451,7 +451,7 @@ mod tests {
         let mut writer = sam::io::Writer::new(std::fs::File::create("out.sam").unwrap());
         let reader =
             flate2::read::MultiGzDecoder::new(std::fs::File::open("tests/test.fq.gz").unwrap());
-        let mut reader = fastq::Reader::new(BufReader::new(reader));
+        let mut reader = fastq::io::Reader::new(BufReader::new(reader));
         reader
             .records()
             .map(|x| x.unwrap())
