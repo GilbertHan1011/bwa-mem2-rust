@@ -99,6 +99,9 @@ fn main() {
         .define("ENABLE_PREFETCH", None)
         .define("V17", Some("1"))
         .define("MATE_SORT", Some("0"))
+        // Rename conflicting functions to avoid symbol conflicts with minimap2-rs
+        .define("cputime", Some("bwamem2_cputime"))
+        .define("realtime", Some("bwamem2_realtime"))
         .include("ext/bwa-mem2/src")
         .include("ext/bwa-mem2/ext/safestringlib/include");
 
