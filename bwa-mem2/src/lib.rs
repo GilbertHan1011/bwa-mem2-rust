@@ -208,6 +208,17 @@ impl AlignerOpts {
         self.opts.flag |= bwa_mem2_sys::MEM_F_PE as i32;
         self
     }
+
+    //These parameter will be used in Hi-C data analysis
+    pub fn with_no_pairing(mut self) -> Self {
+        self.opts.flag |= bwa_mem2_sys::MEM_F_NOPAIRING as i32;
+        self
+    }
+
+    pub fn with_no_rescue(mut self) -> Self {
+        self.opts.flag |= bwa_mem2_sys::MEM_F_NO_RESCUE as i32;
+        self
+    }
 }
 
 /// Paired-end statistics structure used by BWA to score paired-end reads
